@@ -12,6 +12,7 @@ function BookData(title, author) {
 }
 
 const showList = () => {
+    
       booksList.innerHTML = '';
 
       booksInformation.forEach((book, i)=> {
@@ -56,11 +57,13 @@ addBtn.addEventListener('click', (e) => {
   }
  )
 
+
+// Local storage
+
  if (localStorage.getItem('books') == null) {
     booksInformation = [];
  } else {
     booksInformation = JSON.parse(localStorage.getItem('books'));
     showList();
- }
+ } 
 
- // Locar storage
