@@ -7,16 +7,15 @@ const parser = new DOMParser();
 let booksInformation = [];
 
 function BookData(title, author) {
-    this.title = title;
-    this.author = author;
+  this.title = title;
+  this.author = author;
 }
 
 const showList = () => {
-    
-      booksList.innerHTML = '';
+  booksList.innerHTML = '';
 
-      booksInformation.forEach((book, i)=> {
-        const bookString = `
+  booksInformation.forEach((book, i) => {
+    const bookString = `
           <div id="div-${i}">
             <p>${book.title}</p>
             <p>${book.author}</p>
@@ -24,46 +23,41 @@ const showList = () => {
           </div>
           `;
 
-        const bookHtml = parser.parseFromString(bookString, 'text/html').body.firstChild;
-        booksList.appendChild(bookHtml);
+    const bookHtml = parser.parseFromString(bookString, 'text/html').body.firstChild;
+    booksList.appendChild(bookHtml);
 
-        //Here I will add an event for the remove button
+    // Here I will add an event for the remove button
 
-        const remove = bookHtml.querySelector('.remove');
-        remove.addEventListener('click', () => {
-             document.getElementById(`div-${i}`).outerHTML = "";
-             booksInformation.splice(i, 1);
-             localStorage.setItem('books', JSON.stringify(booksInformation));
-             showList();
-            }   
-        );
-    })
- };
-
+    const remove = bookHtml.querySelector('.remove');
+    remove.addEventListener('click', () => {
+      document.getElementById(`div-${i}`).outerHTML = '';
+      booksInformation.splice(i, 1);
+      localStorage.setItem('books', JSON.stringify(booksInformation));
+      showList();
+    });
+  });
+};
 
 addBtn.addEventListener('click', (e) => {
-    if(title.value.length > 0 && author.value.length > 0) {
-        e.preventDefault();
-         
-        booksInformation.push(new BookData(title.value, author.value));
-        title.value = "";
-        author.value = "";
-        showList();
-        localStorage.setItem('books', JSON.stringify(booksInformation));
-    } else {
-       alert('Please fill the fields!') 
-    }  
-      
-  }
- )
+  if (title.value.length > 0 && author.value.length > 0) {
+    e.preventDefault();
 
+    booksInformation.push(new BookData(title.value, author.value));
+    title.value = '';
+    author.value = '';
+    showList();
+    localStorage.setItem('books', JSON.stringify(booksInformation));
+  }
+  /* else {
+     window.alert('Please fill the fields!');
+   } */
+});
 
 // Local storage
 
- if (localStorage.getItem('books') == null) {
-    booksInformation = [];
- } else {
-    booksInformation = JSON.parse(localStorage.getItem('books'));
-    showList();
- } 
-
+if (localStorage.getItem('books') == null) {
+  booksInformation = [];
+} else {
+  booksInformation = JSON.parse(localStorage.getItem('books'));
+  showList();
+}
