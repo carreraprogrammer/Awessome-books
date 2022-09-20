@@ -48,9 +48,6 @@ addBtn.addEventListener('click', (e) => {
     showList();
     localStorage.setItem('books', JSON.stringify(booksInformation));
   }
-  /* else {
-     window.alert('Please fill the fields!');
-   } */
 });
 
 // Local storage
