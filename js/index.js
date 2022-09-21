@@ -16,13 +16,17 @@ const showList = () => {
 
   booksInformation.forEach((book, i) => {
     const bookString = `
-          <div id="div-${i}">
-            <p>${book.title}</p>
-            <p>${book.author}</p>
-            <button id="btn-${i}"class="remove">Remove</button>
+          <div id="div-${i}" class="book-field-information">
+            <div class="book-information">
+              <p class="title-added">"${book.title}"</p>
+              <p>By</p>
+              <p class="author-added">${book.author}</p>
+            </div>
+            <div class="remove-btn-container">
+             <button id="btn-${i}"class="remove">Remove</button>
+            </div>
           </div>
           `;
-
     const bookHtml = parser.parseFromString(bookString, 'text/html').body.firstChild;
     booksList.appendChild(bookHtml);
 
@@ -58,3 +62,4 @@ if (localStorage.getItem('books') == null) {
   booksInformation = JSON.parse(localStorage.getItem('books'));
   showList();
 }
+

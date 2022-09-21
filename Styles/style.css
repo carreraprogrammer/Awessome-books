@@ -1,0 +1,123 @@
+
+/* reset */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* reset */
+
+:root {
+--purple: #8963c647;
+--white: #f4f5f0;
+}
+
+.horizontal-bar {
+  border: 1px solid black;
+  margin-top: 24px;
+  width: 10%;
+}
+
+.add-books {
+  padding: 5px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;  
+}
+
+#page-title {
+  font-size: 3rem;
+}
+
+#add-input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#add-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-top: 1rem;
+}
+
+#add-btn {
+  padding: 5px;
+}
+
+#title, #author {
+  width: 100%;
+  margin-top: 1rem;
+  height: 2rem;
+}
+
+.add-books {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+
+}
+
+.horizontal-bar {
+  border: 1px solid black;
+}
+
+.add-books {
+  padding: 5px;
+}
+
+#Books-List {
+  border: 2px solid black;
+  width: 50%;
+  margin-top: 24px;
+}
+
+.book-field-information {
+  height: 2.5rem;
+  border: 1px solid black;
+  display: flex; 
+  width: 100%;
+  align-items: center;
+}
+
+.book-field-information.purple {
+  background-color:var(--purple);
+}
+
+.book-field-information.white {
+  background-color: var(--white);
+}
+
+.book-information{
+  display: flex;
+  width: 90%;
+  font-size: 1.2rem;
+  gap: 8px;
+  margin-left: 12px;
+}
+
+.remove-btn-container {
+  height: 80%;
+  display: flex;
+  justify-content: flex-end;
+  width: 10%;
+  margin-right: 12px;
+}
+
+.title-added{
+  width: auto;
+}
