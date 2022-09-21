@@ -1,1 +1,7 @@
-/* this is empty file */
+.horizontal-bar {
+  border: 1px solid black;
+}
+
+.add-books {
+  padding: 5px;
+}
