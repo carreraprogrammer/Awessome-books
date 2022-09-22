@@ -17,6 +17,10 @@
 --white: #f4f5f067;
 }
 
+body {
+  font-family: 'Indie Flower', cursive;
+}
+
 .horizontal-bar {
   border: 1px solid black;
   margin-top: 24px;
@@ -94,12 +98,8 @@ body {
   align-items: center;
 }
 
-.book-field-information.purple {
+.book-field-information:nth-child(even) {
   background-color:var(--purple);
-}
-
-.book-field-information.white {
-  background-color: var(--white);
 }
 
 .book-information{
