@@ -4,38 +4,17 @@ const addBtn = document.getElementById('add-btn');
 const booksList = document.getElementById('Books-List');
 const parser = new DOMParser();
 
-class booksdata {
-  booksinfo() {
-    // console.log("called books data class and the info method");
-    booksInformation = [];
-  }
+let booksInformation = [];
+
+function BookData(title, author) {
+  this.title = title;
+  this.author = author;
 }
-
-class Book extends booksdata {
-  constructor(title, author) {
-    this.title = title;
-    this.author = author;
-  }
-
-  addBook() {
-    this.booksinfo().push(this.title.value, this.author.value);
-    // this.booksInformation.push(this.title.value, this.author.value);
-  }
-
-  removeBook(i) {
-    this.booksinfo().splice(i, 1);
-  }
-}
-// let booksInformation = [];
-// function BookData(title, author) {
-//   this.title = title;
-//   this.author = author;
-// }
 
 const showList = () => {
   booksList.innerHTML = '';
 
-  booksdata.booksinfo().forEach((book, i) => {
+  booksInformation.forEach((book, i) => {
     const bookString = `
           <div id="div-${i}" class="book-field-information purple">
             <div class="book-information">
@@ -74,18 +53,16 @@ const showList = () => {
     const remove = bookHtml.querySelector('.remove');
     remove.addEventListener('click', () => {
       document.getElementById(`div-${i}`).outerHTML = '';
-      Book.removeBook(i);
-      // booksInformation.splice(i, 1);
-      localStorage.setItem('books', JSON.stringify(booksdata.booksinfo()));
+      booksInformation.splice(i, 1);
+      localStorage.setItem('books', JSON.stringify(booksInformation));
       showList();
     });
 
     const remove2 = bookHtml2.querySelector('.remove');
     remove2.addEventListener('click', () => {
       document.getElementById(`div-${i}`).outerHTML = '';
-      Book.removeBook(i);
-      // booksInformation.splice(i, 1);
-      localStorage.setItem('books', JSON.stringify(booksdata.booksinfo()));
+      booksInformation.splice(i, 1);
+      localStorage.setItem('books', JSON.stringify(booksInformation));
       showList();
     });
   });
@@ -95,22 +72,20 @@ addBtn.addEventListener('click', (e) => {
   
   if (title.value.length > 0 && author.value.length > 0) {
     e.preventDefault();
-    Book.addBook();
-    // booksInformation.push(new BookData(title.value, author.value));
+    booksInformation.push(new BookData(title.value, author.value));
     title.value = '';
     author.value = '';
     showList();
-    localStorage.setItem('books', JSON.stringify(booksdata.booksinfo()));
+    localStorage.setItem('books', JSON.stringify(booksInformation));
   }
 });
 
 // Local storage
 
 if (localStorage.getItem('books') == null) {
-  // booksInformation = [];
-  booksdata.booksinfo();
+  booksInformation = [];
 } else {
-  booksdata.booksinfo() = JSON.parse(localStorage.getItem('books'));
+  booksInformation = JSON.parse(localStorage.getItem('books'));
   showList();
 }
 
