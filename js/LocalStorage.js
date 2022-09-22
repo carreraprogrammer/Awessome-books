@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 // Creating a Class for Local Storage
 
 export default class LocalStorage {

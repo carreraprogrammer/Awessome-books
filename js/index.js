@@ -19,7 +19,7 @@ class Methods {
   static displayBooks() {
     const books = LocalStorage.getBooks();
     books.forEach((book, i) => Methods.addBookToList(book, i));
-    }
+  }
 
   static addBookToList(book, i) {
     const booksList = document.getElementById('Books-List');
@@ -34,12 +34,12 @@ class Methods {
          <button id="btn-${i}"class="remove">Remove</button>
         </div>
       </div>
-      `;  
- 
+      `;
+
     const bookHtml = parser.parseFromString(bookString, 'text/html').body.firstChild;
 
     booksList.appendChild(bookHtml);
-  }  
+  }
 
   static clearInput() {
     title.value = '';
@@ -60,9 +60,8 @@ document.addEventListener('DOMContentLoaded', Methods.displayBooks);
 // Create an event to Add the books
 
 addBtn.addEventListener('click', () => {
-
   // Create a new Objet with the input information
-  
+
   const book = new BookData(author.value, title.value);
 
   // Add book to UI
@@ -76,16 +75,15 @@ addBtn.addEventListener('click', () => {
   // Clear Input
 
   Methods.clearInput();
-})
+});
 
-// Create an event to remove the book 
+// Create an event to remove the book
 
-booksList.addEventListener('click',(e) => {
-    // Remove the book from the list
-    Methods.deleteBook(e.target);
-
-    //Remove book from the store 
-    LocalStorage.removeBooks(e.target.parentElement.previousElementSibling.firstChild.textContent); 
+booksList.addEventListener('click', (e) => {
+  // Remove the book from the list
+  Methods.deleteBook(e.target);
+  // Remove book from the store 
+  LocalStorage.removeBooks(e.target.parentElement.previousElementSibling.firstChild.textContent); 
 })
 
 
