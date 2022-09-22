@@ -84,6 +84,4 @@ booksList.addEventListener('click', (e) => {
   Methods.deleteBook(e.target);
   // Remove book from the store 
   LocalStorage.removeBooks(e.target.parentElement.previousElementSibling.firstChild.textContent); 
-})
-
-
+});
