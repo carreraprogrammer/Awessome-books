@@ -4,17 +4,14 @@ const title = document.getElementById('title');
 const author = document.getElementById('author');
 const addBtn = document.getElementById('add-btn');
 const booksList = document.getElementById('Books-List');
-const parser = new DOMParser();
 
+// Import th Books Class
 
-// Create a class to save the Book Data
+import BookData from './Books.js'; 
 
-class BookData {
-    constructor(author, title) {
-        this.author = author;
-        this.title = title;
-    }
-}
+// Import LocalStorage
+
+import LocalStorage from './LocalStorage.js'; 
 
 // Create Methods to display the Book Data
 
@@ -65,7 +62,7 @@ document.addEventListener("DOMContentLoaded", Methods.displayBooks);
 
 // Create an event to Add the books 
 
-addBtn.addEventListener('click', (e) => {
+addBtn.addEventListener('click', () => {
 
 
   // Create a new Objet with the input information
@@ -95,34 +92,4 @@ booksList.addEventListener('click',(e) => {
     LocalStorage.removeBooks(e.target.parentElement.previousElementSibling.firstChild.textContent); 
 })
 
-// Creating a Class for Local Storage
 
-class LocalStorage {
-    
-  static getBooks() {
-    let books;
-    if(localStorage.getItem('books') == null){
-      books =[];
-    }else{
-      books = JSON.parse(localStorage.getItem('books'));
-    }
-    return books;
-  }
-
-  static addBook(book) {
-    const books = LocalStorage.getBooks()
-    books.push(book);
-    localStorage.setItem('books', JSON.stringify(books))
-  }
-  
-  static removeBooks(name){
-    const books = LocalStorage.getBooks();
-
-    books.forEach((book, index) => {
-      if (book.title === name) {
-        books.splice(index, 1);
-      }
-    });
-    localStorage.setItem('books', JSON.stringify(books))
-  }
-}
