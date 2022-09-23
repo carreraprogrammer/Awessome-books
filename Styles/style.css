@@ -106,3 +106,17 @@ body {
 .title-added {
   width: auto;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+  /* cursor: pointer; */
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.navlinks:active {
+  color: rgb(60, 157, 172);
+}
