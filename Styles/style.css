@@ -32,8 +32,6 @@
 
 .ocult {
   display: none;
-  opacity: 0;
-  transition: all 0.5 ease-in-out;
 }
 
 /* Here starts the nav bar customizations */
@@ -212,7 +210,7 @@ body {
 a {
   text-decoration: none;
   color: black;
-  /* cursor: pointer; */
+  cursor: pointer;
 }
 
 a:hover {
@@ -243,6 +241,7 @@ a:active {
   list-style: disc outside none;
   margin-left: 10%;
 }
+
 /* Here start footer customizations */
 
 footer {
