@@ -61,10 +61,7 @@ document.addEventListener('DOMContentLoaded', Methods.displayBooks);
 // Create an event to Add the books
 
 addBtn.addEventListener('click', () => {
-
-  if(author.value.length > 0 && title.value.length > 0) {
-   
-
+  if (author.value.length > 0 && title.value.length > 0) {
     // Create a new Objet with the input information
 
     const book = new BookData(author.value, title.value);
@@ -90,12 +87,9 @@ addBtn.addEventListener('click', () => {
     // Show error message
 
      error.classList.remove('ocult')
-     
+
     }
 });
-
-
-  
 
 // Create an event to remove the book
 
