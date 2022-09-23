@@ -276,3 +276,17 @@ footer p {
   color: #8963c6;
   font-weight: bold;
 }
+
+/* date */
+
+#date-time {
+  height: 24px;
+  width: 300px;
+  color: #8963c6;
+  position: absolute;
+  right: 3%;
+  top: 12%;
+  display: flex;
+  justify-content: right;
+  font-weight: bolder;
+}
