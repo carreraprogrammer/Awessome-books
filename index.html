@@ -16,16 +16,16 @@
       <nav class="dl-flex">
         <span class="logo"><a href="#" class="logolink">Awesome Books</a></span>
         <ul class="nav-navigation dl-flex">
-          <li><a href="#" class="navlinks">List</a></li>
-          <li><a href="#" class="navlinks">Add new</a></li>
-          <li><a href="#" class="navlinks">Contact</a></li>
+          <li><a href="#" class="navlinks" id="list-link">List</a></li>
+          <li><a href="#" class="navlinks" id="addNew-link">Add new</a></li>
+          <li><a href="#" class="navlinks" id="contact-link">Contact</a></li>
         </ul>
       </nav>
       </header>
 
       <!-- Here start List section -->
 
-      <div class="list-container dl-flex">
+      <div class="list-container dl-flex" id="bookList">
 
           <h1 class="page-title">All Awesome Books</h1>
   
@@ -38,8 +38,7 @@
 
       <!-- Here start Add book section -->
 
-      
-      <main class="add-books dl-flex ocult">
+      <main class="add-books dl-flex ocult" id="addBook">
           
           <h1 class="page-title">Add a new book</h1>
 
@@ -56,7 +55,7 @@
       
       <!-- contact section -->
 
-      <section class="contact-info ocult">
+      <section class="contact-info ocult" id="contactinfo">
 
         <h1 class="page-title">Contact information</h1>
 
@@ -77,5 +76,6 @@
       </footer>
       
       <script src="js/index.js" type="module"></script>
+      <script src="js/Single_page.js" type="module"></script>
 </body>
 </html>
