@@ -77,18 +77,16 @@ addBtn.addEventListener('click', () => {
     // Clear Input
 
     Methods.clearInput();
-  
+
     // Ocult error
 
-    error.classList.add('ocult')
+    error.classList.add('ocult');
 
   } else {
-
     // Show error message
 
-     error.classList.remove('ocult')
-
-    }
+    error.classList.remove('ocult');
+  }
 });
 
 // Create an event to remove the book
