@@ -12,6 +12,7 @@ const title = document.getElementById('title');
 const author = document.getElementById('author');
 const addBtn = document.getElementById('add-btn');
 const booksList = document.getElementById('Books-List');
+const error = document.querySelector('#error');
 
 // Create Methods to display the Book Data
 
@@ -60,21 +61,31 @@ document.addEventListener('DOMContentLoaded', Methods.displayBooks);
 // Create an event to Add the books
 
 addBtn.addEventListener('click', () => {
-  // Create a new Objet with the input information
+  if (author.value.length > 0 && title.value.length > 0) {
+    // Create a new Objet with the input information
 
-  const book = new BookData(author.value, title.value);
+    const book = new BookData(author.value, title.value);
 
-  // Add book to UI
+    // Add book to UI
 
-  Methods.addBookToList(book);
+    Methods.addBookToList(book);
 
-  // Add book to localStorage
+    // Add book to localStorage
 
-  LocalStorage.addBook(book);
+    LocalStorage.addBook(book);
 
-  // Clear Input
+    // Clear Input
 
-  Methods.clearInput();
+    Methods.clearInput();
+
+    // Ocult error
+
+    error.classList.add('ocult');
+  } else {
+    // Show error message
+
+    error.classList.remove('ocult');
+  }
 });
 
 // Create an event to remove the book
@@ -85,3 +96,26 @@ booksList.addEventListener('click', (e) => {
   // Remove book from the store
   LocalStorage.removeBooks(e.target.parentElement.previousElementSibling.firstChild.textContent);
 });
+
+// Add date
+
+function refreshTime() {
+  const timeDisplay = document.getElementById('date-time');
+  const dateOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  };
+  const dateString = new Date().toLocaleString('en-us', dateOptions);
+  timeDisplay.textContent = dateString;
+}
+
+function initTime() {
+  refreshTime();
+  setInterval(refreshTime, 1000);
+}
+
+initTime();
