@@ -99,7 +99,6 @@ booksList.addEventListener('click', (e) => {
 
 // Add date
 
-
 function refreshTime() {
   const timeDisplay = document.getElementById('date-time');
   const dateOptions = {
