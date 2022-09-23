@@ -12,6 +12,7 @@ const title = document.getElementById('title');
 const author = document.getElementById('author');
 const addBtn = document.getElementById('add-btn');
 const booksList = document.getElementById('Books-List');
+const error = document.querySelector('#error');
 
 // Create Methods to display the Book Data
 
@@ -60,22 +61,41 @@ document.addEventListener('DOMContentLoaded', Methods.displayBooks);
 // Create an event to Add the books
 
 addBtn.addEventListener('click', () => {
-  // Create a new Objet with the input information
 
-  const book = new BookData(author.value, title.value);
+  if(author.value.length > 0 && title.value.length > 0) {
+   
 
-  // Add book to UI
+    // Create a new Objet with the input information
 
-  Methods.addBookToList(book);
+    const book = new BookData(author.value, title.value);
 
-  // Add book to localStorage
+    // Add book to UI
 
-  LocalStorage.addBook(book);
+    Methods.addBookToList(book);
 
-  // Clear Input
+    // Add book to localStorage
 
-  Methods.clearInput();
+    LocalStorage.addBook(book);
+
+    // Clear Input
+
+    Methods.clearInput();
+  
+    // Ocult error
+
+    error.classList.add('ocult')
+
+  } else {
+
+    // Show error message
+
+     error.classList.remove('ocult')
+     
+    }
 });
+
+
+  
 
 // Create an event to remove the book
 

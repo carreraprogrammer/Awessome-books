@@ -1,4 +1,4 @@
-function toggleClass() {
+
   var bookList = document.querySelector('#bookList');
   var addBooks = document.querySelector('#addBook');
   var contactinfo = document.querySelector('#contactinfo');
@@ -8,28 +8,28 @@ function toggleClass() {
   var contactlink = document.querySelector('#contact-link');
 
   listlink.addEventListener('click', () => {
-    if (bookList.contains("ocult")) {
-      bookList.remove("ocult");
-      addBooks.add("ocult");
-      contactinfo.add("ocult");
-    }
+      bookList.classList.remove("ocult");
+      addBooks.classList.add("ocult");
+      contactinfo.classList.add("ocult");
+      listlink.classList.add("purple");
+      addNewlink.classList.remove("purple");
+      contactlink.classList.remove("purple");
   });
 
   addNewlink.addEventListener('click', () => {
-    if (addBooks.contains("ocult")) {
-      addBooks.remove("ocult");
-      bookList.add("ocult");
-      contactinfo.add("ocult");
-    }
+      addBooks.classList.remove("ocult");
+      bookList.classList.add("ocult");
+      contactinfo.classList.add("ocult");
+      listlink.classList.remove("purple");
+      addNewlink.classList.add("purple");
+      contactlink.classList.remove("purple");
   });
 
   contactlink.addEventListener('click', () => {
-    if (contactinfo.contains("ocult")) {
-      contactinfo.remove("ocult");
-      bookList.add("ocult");
-      addBooks.add("ocult");
-    }
+      contactinfo.classList.remove("ocult");
+      bookList.classList.add("ocult");
+      addBooks.classList.add("ocult");
+      listlink.classList.remove("purple");
+      addNewlink.classList.remove("purple");
+      contactlink.classList.add("purple");
   });
-}
-
-toggleClass();

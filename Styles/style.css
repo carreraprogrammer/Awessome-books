@@ -114,7 +114,22 @@ body {
 }
 
 #add-btn {
-  padding: 5px;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  cursor: pointer;
+  background-color: white;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 3.5px solid black;
+  border-bottom: 3.5px solid black;
+}
+
+#add-btn:hover {
+  background-color: #8963c6;
+  transform: scale(1.2);
+  color: white;
 }
 
 #title,
@@ -176,10 +191,18 @@ body {
   background: white;
   color: inherit;
   border: 2px solid black;
+  border-bottom: 3.5px solid black;
+  border-right: 3.5px solid black;
   padding: 0 5px;
   font: inherit;
   cursor: pointer;
   outline: inherit;
+}
+
+.remove:hover {
+  background-color: #8963c6;
+  transform: scale(1.1);
+  color: white;
 }
 
 .title-added {
@@ -197,12 +220,17 @@ a:hover {
   text-decoration-color: #8963c6;
 }
 
-a:active {
+li:hover {
+  transform: scale(1.1);
+}
+
+li:active {
   color: #8963c6;
 }
 
-.navlinks:active {
-  color: rgb(60, 157, 172);
+a:active {
+  color: #8963c6;
+  font-weight: 600;
 }
 
 /* Here start contact customizations */
@@ -228,4 +256,23 @@ footer {
 
 footer p {
   margin-left: 24px;
+}
+
+.purple {
+  color: #8963c6;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+#error {
+  border: 1px solid black;
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
+  width: 80%;
+  margin-top: 12px;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #8963c6d2;
 }
