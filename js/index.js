@@ -81,7 +81,6 @@ addBtn.addEventListener('click', () => {
     // Ocult error
 
     error.classList.add('ocult');
-
   } else {
     // Show error message
 
